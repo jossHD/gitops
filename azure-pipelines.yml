@@ -6,20 +6,18 @@ pool:
 
 steps:
 
-- task: GitHubRelease@1
+- task: CmdLine@2
   inputs:
-    gitHubConnection: 'github-jossHD'
-    repositoryName: '$(Build.Repository.Name)'
-    action: 'create'
-    target: '$(Build.SourceVersion)'
-    tagSource: 'userSpecifiedTag'
-    tag: '$(Build.BuildNumber)'
-    releaseNotesSource: 'inline'
-    releaseNotesInline: 'hola'
-    assets: |
-      $(Build.ArtifactStagingDirectory)/*.exe
-      $(Build.ArtifactStagingDirectory)/README.txt
-    changeLogCompareToRelease: 'lastFullRelease'
-    changeLogType: 'commitBased'
+    script: |
+      ECHO "Setting git config..."
+      git config --global user.email "hinostrozajosselyn@gmail.com"
+      git config --global user.name "jossHD"
 
+- task: CmdLine@2
+  inputs:
+    script: |
+      git add .
+      git commit -m "Adding API"
+      ECHO "Pushing the changes..."
+      git push -u origin master
 
