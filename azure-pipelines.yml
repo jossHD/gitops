@@ -14,7 +14,7 @@ steps:
     target: '$(Build.SourceVersion)'
     tagSource: 'gitTag'
     title: 'sample'
+    assets: '$(Build.ArtifactStagingDirectory)/README.txt'
     changeLogCompareToRelease: 'lastFullRelease'
     changeLogType: 'commitBased'
-
 
