@@ -17,7 +17,7 @@ steps:
   inputs:
     script: |
       ECHO "Creating file..."
-      touch fileName.yml
+      mkdir fileName
       git add .
       git commit -m "Adding API"
       ECHO "Pushing the changes..."
