@@ -19,5 +19,5 @@ steps:
       git add .
       git commit -m "Adding API"
       ECHO "Pushing the changes..."
-      git push 
+      git push origin HEAD:main
 
