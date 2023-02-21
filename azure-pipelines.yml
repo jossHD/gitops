@@ -16,7 +16,7 @@ steps:
 - task: CmdLine@2
   inputs:
     script: |
-      git add .
+      git add hola.yml
       git commit -m "Adding API"
       ECHO "Pushing the changes..."
       git push origin HEAD:main
