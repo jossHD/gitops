@@ -11,14 +11,9 @@ steps:
     gitHubConnection: 'github-jossHD'
     repositoryName: '$(Build.Repository.Name)'
     action: 'create'
-    target: '$(Build.SourceVersion)'
-    tagSource: 'gitTag'
-    tagPattern: 'release-v1.*'
-    title: 'sample'
-    releaseNotesSource: 'inline'
-    releaseNotesInline: 'Hola'
-    assets: '$(Build.ArtifactStagingDirectory)/README.txt'
-    changeLogCompareToRelease: 'lastFullRelease'
-    changeLogType: 'commitBased'
+    tag: $(Build.BuildNumber)      
+    assets: |
+      $(Build.ArtifactStagingDirectory)/*.exe
+      $(Build.ArtifactStagingDirectory)/README.txt
 
 
