@@ -17,7 +17,7 @@ steps:
   inputs:
     script: |
       ECHO "Creating file..."
-      mkdir fileName
+      echo your_text_here > filename.txt
       git add .
       git commit -m "Adding API"
       ECHO "Pushing the changes..."
