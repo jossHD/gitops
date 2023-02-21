@@ -16,7 +16,9 @@ steps:
 - task: CmdLine@2
   inputs:
     script: |
-      git add hola.yml
+      ECHO "Creating file..."
+      touch fileName.yml
+      git add .
       git commit -m "Adding API"
       ECHO "Pushing the changes..."
       git push origin HEAD:main
