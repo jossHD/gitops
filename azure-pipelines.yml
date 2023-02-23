@@ -6,12 +6,6 @@ pool:
 
 steps:
 
-- task: Bash@3
-  inputs:
-    filePath: 'C:\Program Files\IBM\ACE\12.0.6.0\server\bin\mqsiprofile.cmd'
-- task: CmdLine@2
-  inputs:
-    script: 'mqsicreatebar --help'
 - task: CmdLine@2
   inputs:
     script: |
