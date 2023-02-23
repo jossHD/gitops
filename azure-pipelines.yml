@@ -14,4 +14,7 @@ steps:
       mqsicreatebar --help
     workingDirectory: 'C:\Program Files\IBM\ACE\12.0.6.0\server\bin'
 
+- task: CmdLine@2
+  inputs:
+    script: 'mqsicreatebar --help'
 
