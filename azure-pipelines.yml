@@ -13,6 +13,4 @@ steps:
       
       mqsiprofile.cmd
       
-      mqsiprofile.cmd
-      
-      mqsicreatebar --help
+      echo "funciona?"
