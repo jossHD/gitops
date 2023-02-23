@@ -7,19 +7,12 @@ pool:
 steps:
 
 - task: CmdLine@2
+  displayName: Toolkit token
   inputs:
     script: |
-      ECHO "Setting git config..."
-      git config --global user.email "hinostrozajosselyn@gmail.com"
-      git config --global user.name "jossHD"
-
+      cd C:\Program Files\IBM\ACE\12.0.6.0\server\bin\
+      
+      mqsiprofile.cmd
 - task: CmdLine@2
   inputs:
-    script: |
-      ECHO "Creating file..."
-      echo your_text_here > filename.txt
-      git add .
-      git commit -m "Adding API"
-      ECHO "Pushing the changes..."
-      git push origin HEAD:main
-
+    script: 'mqsicreatebar --help'
