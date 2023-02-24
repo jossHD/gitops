@@ -13,5 +13,7 @@ steps:
       
       ace.cmd
       
-      mqsicreateworkdir --help
+- task: CmdLine@2
+  inputs:
+    script: 'mqsicreateworkdir --help'
 
