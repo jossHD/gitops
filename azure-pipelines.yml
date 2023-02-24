@@ -4,19 +4,7 @@ trigger:
 pool:
   name: PoC IBK
 
-stages:
-- stage: Prueba
-  displayName: Prueba ACE
-  jobs:
-  - deployment: Pruebaace
-    workspace:
-      clean: all
-    displayName: prueba en ace
-    environment: sandbox
-    strategy:
-      runOnce:
-        deploy:
-         steps:
-           - task: CmdLine@2
-             inputs:
-               script: 'CALL C:\\Program Files\\IBM\\ACE\\12.0.7.0\\ace mqsicreateworkdir --help'
+steps:
+  - task: CmdLine@2
+    inputs:
+      script: 'CALL "C:\Program Files\IBM\ACE\12.0.6.0\ace.cmd" mqsicreateworkdir --help'
