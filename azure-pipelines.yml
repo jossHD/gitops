@@ -19,4 +19,4 @@ stages:
          steps:
            - task: CmdLine@2
              inputs:
-               script: 'mqsicreateworkdir --help'
+               script: 'CALL C:\\Program Files\\IBM\\ACE\\12.0.7.0\\ace mqsicreateworkdir --help'
