@@ -5,6 +5,7 @@ pool:
   name: PoC IBK
 
 steps:
-  - task: CmdLine@2
-    inputs:
-      script: 'CALL "C:\Program Files\IBM\ACE\12.0.6.0\ace.cmd" mqsicreateworkdir --help'
+- task: CmdLine@2
+  displayName: 'Creating bar file'
+  inputs:
+    script: 'CALL "C:\Program Files\IBM\ACE\12.0.6.0\ace.cmd" ibmint package  --input-path C:\Users\001664815\IBM\ACET12\workspace  --project java --output-bar-file C:\Users\001664815\IBM\ACET12\workspace\BARfiles\java.bar'
