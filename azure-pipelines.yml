@@ -9,6 +9,6 @@ steps:
   displayName: 'Clone Repo'
   inputs:
     script: |
-      git clone https://github.com/jossHD/devops-pipeline.git:$(system.defaultworkingdirectory)
+      git clone https://github.com/jossHD/devops-pipeline.git $(system.defaultworkingdirectory)
       
       CALL "C:\Program Files\IBM\ACE\12.0.6.0\ace.cmd" ibmint package --input-path $(system.defaultworkingdirectory)\ace-projects  --project simple-demo --output-bar-file C:\Users\001664815\IBM\ACET12\workspace\BARfiles\java.bar
