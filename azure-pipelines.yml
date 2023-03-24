@@ -2,13 +2,21 @@ trigger:
 - main
 
 pool:
-  name: PoC IBK
+  name: Windows Agent
 
 steps:
 - task: CmdLine@2
   displayName: 'Clone Repo'
   inputs:
     script: |
-      git clone https://github.com/jossHD/devops-pipeline.git $(system.defaultworkingdirectory)
+      git clone https://github.com/jossHD/apic-publish-pipeline.git
+- task: PowerShell@2
+  inputs:
+    targetType: 'inline'
+    script: 'apic login -s cpd-my-cp4i.mycluster-dal12-jlhd-ccc03eca20d26e6ac64511f874a64b9b-0000.us-south.containers.appdomain.cloud/integration/apis/my-cp4i/api-management -r provider/default-idp-2  -u admin -p 3006.hinos'
       
-      CALL "C:\Program Files\IBM\ACE\12.0.6.0\ace.cmd" ibmint package --input-path $(system.defaultworkingdirectory)\ace-projects  --project simple-demo --output-bar-file C:\Users\001664815\IBM\ACET12\workspace\BARfiles\java.bar
+- task: PowerShell@2
+  inputs:
+    targetType: 'inline'
+    script: 'apic draft-products:create demo-org_1.0.0.yaml -s cpd-my-cp4i.mycluster-dal12-jlhd-ccc03eca20d26e6ac64511f874a64b9b-0000.us-south.containers.appdomain.cloud/integration/apis/my-cp4i/api-management -o org-provide | Out-File -FilePath new-product.yaml'
+    workingDirectory: '$(system.defaultworkingdirectory)/apic-publish-pipeline/templates/assets'
